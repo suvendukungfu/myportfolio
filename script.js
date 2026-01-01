@@ -38,3 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     applyTheme(e.matches ? "light" : "dark");
   });
 });
+function toggleMenu() {
+  const menu = document.getElementById("menu");
+  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}

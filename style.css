@@ -1,3 +1,16 @@
+:root {
+    --bg: #0f172a;
+    --text: #e5e7eb;
+    --accent: #38bdf8;
+    --card-bg: #020617;
+}
+
+body.light {
+    --bg: #f8fafc;
+    --text: #020617;
+    --accent: #0284c7;
+    --card-bg: #e2e8f0;
+}
 /* ---------- Global Reset ---------- */
 * {
     margin: 0;
@@ -193,5 +206,85 @@ body.light .theme-toggle {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+
+/* ---------- Animated Theme Switch ---------- */
+.theme-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.switch {
+    width: 60px;
+    height: 30px;
+    background: var(--card-bg);
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+    transition: background 0.3s ease;
+}
+
+.switch::after {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: white;
+    border-radius: 50%;
+    left: 3px;
+    transition: transform 0.3s ease;
+}
+
+#theme-toggle {
+    display: none;
+}
+
+#theme-toggle:checked+.switch::after {
+    transform: translateX(30px);
+}
+
+.icon {
+    font-size: 14px;
+}
+/* ---------- Navbar ---------- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu-btn {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: var(--text);
+}
+
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        background: var(--card-bg);
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .menu-btn {
+        display: block;
     }
 }
