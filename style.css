@@ -137,3 +137,42 @@ body {
         transform: translateY(0);
     }
 }
+/* ---------- Theme Toggle Button ---------- */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #020617;
+    color: #fff;
+    border: none;
+    padding: 10px 14px;
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* ---------- Light Mode ---------- */
+body.light {
+    background: #f8fafc;
+    color: #020617;
+}
+
+body.light .project {
+    background: #e2e8f0;
+}
+
+body.light .links a {
+    color: #0284c7;
+}
+
+body.light .theme-toggle {
+    background: #e2e8f0;
+    color: #020617;
+}
