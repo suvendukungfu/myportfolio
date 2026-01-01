@@ -2,55 +2,39 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggleBtn = document.getElementById("theme-toggle");
   if (!toggleBtn) return;
 
-  const systemPrefersLight = window.matchMedia(
-    "(prefers-color-scheme: light)"
-  ).matches;
-
+  const mediaQuery = window.matchMedia("(prefers-color-scheme: light)");
   const savedTheme = localStorage.getItem("theme");
+
+  // 🔹 Apply theme helper
+  const applyTheme = (theme) => {
+    if (theme === "light") {
+      document.body.classList.add("light");
+      toggleBtn.textContent = "☀️";
+    } else {
+      document.body.classList.remove("light");
+      toggleBtn.textContent = "🌙";
+    }
+  };
 
   // 1️⃣ Initial theme decision
   if (savedTheme) {
-    // User preference exists
-    if (savedTheme === "light") {
-      document.body.classList.add("light");
-      toggleBtn.textContent = "☀️";
-    } else {
-      toggleBtn.textContent = "🌙";
-    }
+    applyTheme(savedTheme);
   } else {
-    // No user preference → follow system
-    if (systemPrefersLight) {
-      document.body.classList.add("light");
-      toggleBtn.textContent = "☀️";
-    } else {
-      toggleBtn.textContent = "🌙";
-    }
+    applyTheme(mediaQuery.matches ? "light" : "dark");
   }
 
   // 2️⃣ Manual toggle (user always wins)
   toggleBtn.addEventListener("click", () => {
-    document.body.classList.toggle("light");
+    const isLight = document.body.classList.toggle("light");
+    const theme = isLight ? "light" : "dark";
 
-    if (document.body.classList.contains("light")) {
-      localStorage.setItem("theme", "light");
-      toggleBtn.textContent = "☀️";
-    } else {
-      localStorage.setItem("theme", "dark");
-      toggleBtn.textContent = "🌙";
-    }
+    localStorage.setItem("theme", theme);
+    toggleBtn.textContent = isLight ? "☀️" : "🌙";
+  });
+
+  // 3️⃣ React to system theme changes (only if user has no preference)
+  mediaQuery.addEventListener("change", (e) => {
+    if (localStorage.getItem("theme")) return;
+    applyTheme(e.matches ? "light" : "dark");
   });
 });
-window
-  .matchMedia("(prefers-color-scheme: light)")
-  .addEventListener("change", (e) => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) return; // user preference overrides system
-
-    if (e.matches) {
-      document.body.classList.add("light");
-      document.getElementById("theme-toggle").textContent = "☀️";
-    } else {
-      document.body.classList.remove("light");
-      document.getElementById("theme-toggle").textContent = "🌙";
-    }
-  });
