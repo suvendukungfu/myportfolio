@@ -1,44 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const toggleBtn = document.getElementById("theme-toggle");
-  if (!toggleBtn) return;
-
+  const themeToggle = document.getElementById("theme-toggle");
   const mediaQuery = window.matchMedia("(prefers-color-scheme: light)");
   const savedTheme = localStorage.getItem("theme");
 
-  // 🔹 Apply theme helper
   const applyTheme = (theme) => {
-    if (theme === "light") {
-      document.body.classList.add("light");
-      toggleBtn.textContent = "☀️";
-    } else {
-      document.body.classList.remove("light");
-      toggleBtn.textContent = "🌙";
-    }
+    document.body.classList.toggle("light", theme === "light");
+    themeToggle.checked = theme === "light";
   };
 
-  // 1️⃣ Initial theme decision
   if (savedTheme) {
     applyTheme(savedTheme);
   } else {
     applyTheme(mediaQuery.matches ? "light" : "dark");
   }
 
-  // 2️⃣ Manual toggle (user always wins)
-  toggleBtn.addEventListener("click", () => {
-    const isLight = document.body.classList.toggle("light");
-    const theme = isLight ? "light" : "dark";
-
+  themeToggle.addEventListener("change", () => {
+    const theme = themeToggle.checked ? "light" : "dark";
     localStorage.setItem("theme", theme);
-    toggleBtn.textContent = isLight ? "☀️" : "🌙";
+    applyTheme(theme);
   });
 
-  // 3️⃣ React to system theme changes (only if user has no preference)
   mediaQuery.addEventListener("change", (e) => {
     if (localStorage.getItem("theme")) return;
     applyTheme(e.matches ? "light" : "dark");
   });
 });
+
 function toggleMenu() {
-  const menu = document.getElementById("menu");
-  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+  document.getElementById("menu").classList.toggle("open");
 }
