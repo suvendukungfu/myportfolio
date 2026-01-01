@@ -2,31 +2,46 @@
 <html lang="en">
 
 <head>
-    <meta name="description" content="Suvendu Kumar Sahoo – Full Stack Developer & Robotics Engineer Portfolio">
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO -->
+    <meta name="description" content="Suvendu Kumar Sahoo – Full Stack Developer & Robotics Engineer Portfolio" />
+
     <title>Suvendu | Developer</title>
+
+    <!-- Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <!-- Styles -->
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-<nav class="navbar">
-    <span class="logo">Suvendu</span>
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
-    <div class="menu" id="menu">
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="resume.pdf">Resume</a>
-    </div>
-</nav>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <span class="logo">Suvendu</span>
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle Menu">☰</button>
+        <div class="menu" id="menu">
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="resume.pdf" download>Resume</a>
+        </div>
+    </nav>
 
     <!-- Theme Toggle -->
-    <button id="theme-toggle" class="theme-toggle">🌙</button>
+    <div class="theme-switch">
+        <input type="checkbox" id="theme-toggle" />
+        <label for="theme-toggle" class="switch" aria-label="Toggle Theme">
+            <span class="icon sun">☀️</span>
+            <span class="icon moon">🌙</span>
+        </label>
+    </div>
 
-    <!-- Profile Section -->
+    <!-- Profile / Hero -->
     <header class="profile">
-        <img src="assets/profile.jpg" alt="Suvendu Kumar Sahoo" />
+        <img src="assets/profile.jpg" alt="Suvendu Kumar Sahoo" loading="lazy" />
         <h1>Suvendu Kumar Sahoo</h1>
         <p>Full Stack Developer | React • Node • IoT • Robotics</p>
 
@@ -38,24 +53,30 @@
     </header>
 
     <!-- Skills -->
-    <section>
+    <section id="skills">
         <h2>Skills</h2>
-        <p>JavaScript, React, Node.js, Express, MongoDB, Prisma, IoT, ESP32</p>
+        <p>
+            JavaScript, React, Node.js, Express, MongoDB, Prisma, IoT, ESP32
+        </p>
     </section>
 
     <!-- Projects -->
-    <section>
+    <section id="projects">
         <h2>Projects</h2>
 
         <div class="project">
             <h3>Accident Alert System</h3>
-            <p>Real-time accident detection using React + ESP32 + IoT sensors.</p>
+            <p>
+                Real-time accident detection using React + ESP32 + IoT sensors.
+            </p>
             <a href="#">Live</a> | <a href="#">Code</a>
         </div>
 
         <div class="project">
             <h3>3D Portfolio</h3>
-            <p>Interactive 3D portfolio using Three.js.</p>
+            <p>
+                Interactive 3D portfolio using Three.js.
+            </p>
             <a href="#">Live</a> | <a href="#">Code</a>
         </div>
     </section>
@@ -65,13 +86,8 @@
         <p>© 2026 Suvendu</p>
     </footer>
 
-    <!-- ✅ THIS WAS MISSING (VERY IMPORTANT) -->
+    <!-- Scripts -->
     <script src="script.js"></script>
-    <!-- Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <img src="assets/profile.jpg" loading="lazy" />
-
-
 </body>
 
 </html>
