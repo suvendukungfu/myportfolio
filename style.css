@@ -176,3 +176,40 @@ body.light .theme-toggle {
     background: #e2e8f0;
     color: #020617;
 }
+body {
+    background: #0f172a;
+    color: #e5e7eb;
+    font-family: system-ui, sans-serif;
+
+    /* 🔥 Smooth transition */
+    transition:
+        background-color 0.35s ease,
+        color 0.35s ease;
+}
+section,
+.project,
+header,
+footer {
+    transition:
+        background-color 0.35s ease,
+        color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+body.light {
+    background: #f8fafc;
+    color: #020617;
+}
+
+body.light .project {
+    background: #e2e8f0;
+}
+
+body.light a {
+    color: #0284c7;
+}
+.theme-toggle {
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.2s ease;
+}
