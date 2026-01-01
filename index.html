@@ -4,14 +4,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description"
-        content="Suvendu Kumar Sahoo – Full Stack Developer specializing in React, Node.js, and IoT systems." />
+    <meta name="description" content="Suvendu Kumar Sahoo – Full Stack Developer & Robotics Engineer Portfolio" />
     <title>Suvendu | Full Stack Developer</title>
+
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
+    <!-- 🎇 Particle Canvas -->
+    <canvas id="particles"></canvas>
+
+    <!-- Navbar -->
     <nav class="navbar">
         <span class="logo">Suvendu</span>
         <button class="menu-btn" onclick="toggleMenu()">☰</button>
@@ -22,53 +26,46 @@
         </div>
     </nav>
 
+    <!-- Theme Toggle -->
     <div class="theme-switch">
         <input type="checkbox" id="theme-toggle" />
-        <label for="theme-toggle" class="switch">
-            <span class="icon">☀️</span>
-            <span class="icon">🌙</span>
-        </label>
+        <label for="theme-toggle" class="switch"></label>
     </div>
 
+    <!-- Hero -->
     <header class="profile">
         <img src="assets/profile.jpg" alt="Suvendu Kumar Sahoo" loading="lazy" />
         <h1>Suvendu Kumar Sahoo</h1>
-        <p>
-            Full Stack Developer specializing in React, Node.js, and IoT systems.
-            Experienced in building scalable web apps integrated with real-world hardware.
-        </p>
+        <p id="typing"></p>
 
         <div class="links">
             <a href="https://github.com/suvendukungfu" target="_blank">GitHub</a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+            <a href="#" target="_blank">LinkedIn</a>
             <a href="resume.html" target="_blank">Resume</a>
         </div>
     </header>
 
-    <section id="skills">
+    <!-- Skills -->
+    <section id="skills" class="reveal">
         <h2>Skills</h2>
         <p>
-            JavaScript (ES6+), React.js, Node.js, Express, REST APIs, MongoDB, Prisma ORM,
-            IoT (ESP32), Git & GitHub, System Design
+            JavaScript, React.js, Node.js, Express, MongoDB, Prisma ORM,
+            ESP32, REST APIs, Git & GitHub
         </p>
     </section>
 
-    <section id="projects">
+    <!-- Projects -->
+    <section id="projects" class="reveal">
         <h2>Projects</h2>
 
-        <div class="project">
+        <div class="project reveal">
             <h3>Accident Alert System</h3>
-            <p>
-                Real-time accident detection platform integrating React frontend with ESP32-based
-                hardware sensors and automated emergency alerts.
-            </p>
+            <p>Real-time accident detection using IoT sensors + React dashboard.</p>
         </div>
 
-        <div class="project">
+        <div class="project reveal">
             <h3>3D Portfolio</h3>
-            <p>
-                Interactive portfolio using Three.js to showcase projects and technical skills.
-            </p>
+            <p>Interactive 3D portfolio built with Three.js.</p>
         </div>
     </section>
 
